@@ -1,0 +1,55 @@
+tests
+main:
+    addi t0, t0, 255
+    lb t1, 0(s0)
+	sw t0, 0(s0)
+    
+    
+main:
+addi t0, t0, -4
+blt t1, t0, tide
+tide:
+
+
+main:
+addi t0, t0, -4
+bltu t1, t0, tide
+tide:
+
+main:
+addi t0, t0, -4
+addi t1, t1, -4
+beq t1, t0, tide
+tide:
+
+
+
+main:
+glee:
+addi t0, t0, -4
+addi t1, t1, -4
+beq t1, t0, glee
+
+main:
+glee:
+addi t0, t0, -4
+addi t1, t1, -4
+jal x0, glee
+
+
+main:
+glee:
+addi t0, t0, -4
+addi t1, t1, -4
+bne t0, t1, glee
+
+main:
+addi t0, t0, 4
+sw t0, 4(s0)
+lw t1, 4(s0)
+
+main:
+addi t0, t0, 4
+addi s0, s0, 4
+sw t0, -4(s0)
+lw t1, -4(s0)

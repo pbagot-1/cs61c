@@ -1,0 +1,36 @@
+.import ../argmax.s
+.import ../utils.s
+
+.data
+v0: .word 20 2 2 2 2 10000 # MAKE CHANGES HERE
+
+.text
+main:
+     
+    # Load address of v0
+  
+    addi a0, x0, 16
+    jal malloc
+    sw x0, 0(a0)
+    sw x0, 4(a0)
+    sw x0, 8(a0)
+    sw x0, 12(a0)
+    add s0, x0, a0
+    # Set length of v0
+    addi s1 x0 4 # MAKE CHANGES HERE
+
+    # Call argmax
+    mv a0 s0
+    mv a1 s1
+    jal ra argmax
+
+    # Print the output of argmax
+    mv a1 a0
+    jal ra print_int
+
+    # Print newline
+    li a1 '\n'
+    jal ra print_char
+
+    # Exit program
+    jal exit
